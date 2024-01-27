@@ -89,10 +89,10 @@ content-type: application/json
 GET http://localhost:7000/tablets  
 
 ### Get user by id 
-GET http://localhost:7000/tablets/65b15c9e2a9e924d36fc4f8c
+GET http://localhost:7000/tablets/65b1610c2a9e924d36fc4f92
 
 ### Create a new user
-POST https://localhost:7000/tablets HTTP/1.1 
+POST http://localhost:7000/tablets HTTP/1.1 
 content-type: application/json
 
 {
@@ -106,10 +106,10 @@ content-type: application/json
 }
 
 ###Delete a user
-DELETE https://localhost:7000/tablets/65b15c9e2a9e924d36fc4f8c 
+DELETE http://localhost:7000/tablets/65b1610c2a9e924d36fc4f92 
 
 ### Update user by id
-PUT https://localhost:7000/tablets/65b1610c2a9e924d36fc4f92  HTTP/1.1 
+PUT http://localhost:7000/tablets/65b1610c2a9e924d36fc4f92  HTTP/1.1 
 content-type: application/json
 
 {"_id":{"$oid":"65b1610c2a9e924d36fc4f92"},
@@ -130,7 +130,7 @@ content-type: application/json
 GET https://project2-cr6d.onrender.com/tablets
 
 ### Get user by id 
-GET https://project2-cr6d.onrender.com/tablets/65b1610c2a9e924d36fc4f92
+GET https://project2-cr6d.onrender.com/tablets/65b1610c2a9e924d36fc4f9
 
 ### Create a new user
 POST https://project2-cr6d.onrender.com/tablets HTTP/1.1 

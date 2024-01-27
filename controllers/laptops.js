@@ -26,6 +26,10 @@ const getSingle = async (req, res) => {
     const userId = new ObjectId(req.params.id);
     const result = await mongodb.getDatabase().db().collection('laptops').find({ _id: userId });
     result.toArray().then((laptops) => {
+      if (laptops.length == 0) {
+        res.status(400).json('ID does not exist.')
+        return;
+      }
         res.setHeader('Content-Type', 'application/json');
         res.status(200).json(laptops[0]);
     });

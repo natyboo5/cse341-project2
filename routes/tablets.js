@@ -1,12 +1,12 @@
 const router = require('express').Router();
 const { userValidationRules, validate } = require('../validator');
-const tabletssController = require('../controllers/tablets');
+const tabletsController = require('../controllers/tablets');
 
-router.get('/', tabletssController.getAll);
-router.get('/:id', tabletssController.getSingle);
-router.post('/', userValidationRules(), validate, tabletssController.createTablet);
-router.put('/:id', userValidationRules(), validate, tabletssController.updateTablet);
-router.delete('/:id', tabletssController.deleteTablet);
+router.get('/', tabletsController.getAll);
+router.get('/:id', tabletsController.getSingle);
+router.post('/', userValidationRules(), validate, tabletsController.createTablet);
+router.put('/:id', userValidationRules(), validate, tabletsController.updateTablet);
+router.delete('/:id', tabletsController.deleteTablet);
 
 
 module.exports = router;
