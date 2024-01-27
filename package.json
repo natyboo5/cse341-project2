@@ -14,9 +14,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.18.3",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.1",
     "express": "^4.16.3",
+    "express-validator": "^7.0.1",
     "http-errors": "^2.0.0",
     "mongodb": "^4.4.0",
     "mongoose": "^8.1.0",
@@ -28,6 +30,6 @@
     "eslint-plugin-prettier": "^4.0.0",
     "nodemon": "^3.0.3",
     "prettier": "^2.5.1",
-    "swagger-autogen": "^2.19.0"
+    "swagger-autogen": "^2.23.7"
   }
 }

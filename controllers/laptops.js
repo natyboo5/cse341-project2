@@ -5,29 +5,40 @@ const getAll = async (req, res) => {
   /* 
   #swagger.summary = 'Get all laptops' 
   */
+ try{
     const result = await mongodb.getDatabase().db().collection('laptops').find();
-    result.toArray().then((users) => {
+    result.toArray().then((laptops) => {
         res.setHeader('Content-Type', 'application/json');
-        res.status(200).json(users);
+        res.status(200).json(laptops);
     });
+  } catch(err) {
+    res.status(404);
+  }
 };
 
 const getSingle = async (req, res) => {
     /* 
   #swagger.summary = 'Get laptop by id' 
-  */
+  */try{
+    if (!ObjectId.isValid(req.params.id)){
+        res.status(400).json({message: 'Invalid id'});
+    }
     const userId = new ObjectId(req.params.id);
     const result = await mongodb.getDatabase().db().collection('laptops').find({ _id: userId });
-    result.toArray().then((users) => {
+    result.toArray().then((laptops) => {
         res.setHeader('Content-Type', 'application/json');
-        res.status(200).json(users[0]);
+        res.status(200).json(laptops[0]);
     });
+  } catch(err){
+    res.status(404);
+  }
 };
 
 const createLaptop = async (req, res) => {
     /* 
   #swagger.summary = 'Create a new laptop' 
   */
+  try{
   const laptop = {
     name: req.body.name,
     screenSize: req.body.screenSize,
@@ -44,12 +55,19 @@ const createLaptop = async (req, res) => {
   } else {
     res.status(500).json(response.error || 'Some error occurred while creating the product information.');
   }
+  } catch(err) {
+    res.status(500);
+  }
 };
 
 const updateLaptop = async (req, res) => {
     /* 
   #swagger.summary = 'Update laptops by id' 
   */
+  try {
+  if (!ObjectId.isValid(req.params.id)){
+    res.status(400).json({message: 'Invalid id'});
+    }
     const userId = new ObjectId(req.params.id);
     const user = {
         name: req.body.name,
@@ -67,6 +85,9 @@ const updateLaptop = async (req, res) => {
     } else {
       res.status(500).json(response.error || 'Some error occurred while updating the product information.');
     }
+    } catch(err) {
+      res.status(404);
+    }
   };
 
 
@@ -74,6 +95,10 @@ const deleteLaptop = async (req, res) => {
       /* 
   #swagger.summary = 'Delete laptops by id' 
   */
+  try {
+  if (!ObjectId.isValid(req.params.id)){
+    res.status(400).json({message: 'Invalid id'});
+    }
     const userId = new ObjectId(req.params.id);
     const response = await mongodb.getDatabase().db().collection('laptops').deleteOne({ _id: userId }, true);
     console.log(response);
@@ -82,6 +107,9 @@ const deleteLaptop = async (req, res) => {
     } else {
       res.status(500).json(response.error || 'Some error occurred while deleting the product.');
     }
+   } catch(err)  {
+    res.status(404);
+   }
   };
 
 module.exports = {
