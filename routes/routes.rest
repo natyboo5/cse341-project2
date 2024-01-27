@@ -1,0 +1,166 @@
+
+////LAPTOPS COLLECTION ENDPOINTS///
+
+# LOCALHOST
+### Get all users
+GET http://localhost:7000/laptops  
+
+### Get user by id 
+GET http://localhost:7000/laptops/65b15c9e2a9e924d36fc4f8c
+
+### Create a new user
+POST https://localhost:7000/laptops HTTP/1.1 
+content-type: application/json
+
+{
+"name": "Acer Nitro 16",
+"screenSize":"16.0",
+"cpuType":"AMD Ryzen 9 7000 Series 7940HS",
+"memory":"16GB",
+"storage":"1TB",
+"resolution":"2560 x 1600",
+"price":"$1800"
+}
+
+###Delete a user
+DELETE https://localhost:7000/laptops/65b15c9e2a9e924d36fc4f8c 
+
+### Update user by id
+PUT https://localhost:7000/laptops/65b15c9e2a9e924d36fc4f8c  HTTP/1.1 
+content-type: application/json
+
+{
+"name": "Acer Nitro 16",
+"screenSize":"16.0",
+"cpuType":"AMD Ryzen 9 7000 Series 7940HS",
+"memory":"16GB",
+"storage":"1TB",
+"resolution":"2560 x 1600",
+"price":"$1900"
+}
+
+
+##################################################
+# DEPLOYMENT via Render
+
+### Get all users 
+GET https://project2-cr6d.onrender.com/laptops
+
+### Get user by id 
+GET https://project2-cr6d.onrender.com/laptops/65b15c9e2a9e924d36fc4f8c
+
+### Create a new user
+POST https://project2-cr6d.onrender.com/laptops HTTP/1.1 
+content-type: application/json
+
+{
+"name": "Acer Nitro 16",
+"screenSize":"16.0",
+"cpuType":"AMD Ryzen 9 7000 Series 7940HS",
+"memory":"16GB",
+"storage":"1TB",
+"resolution":"2560 x 1600",
+"price":"$1800"
+}
+
+###Delete a user
+DELETE https://project2-cr6d.onrender.com/laptops/65b15c9e2a9e924d36fc4f8c 
+
+### Update user by id
+PUT https://project2-cr6d.onrender.com/laptops/65b15c9e2a9e924d36fc4f8c  HTTP/1.1 
+content-type: application/json
+
+{
+"name": "Acer Nitro 16",
+"screenSize":"16.0",
+"cpuType":"AMD Ryzen 9 7000 Series 7940HS",
+"memory":"16GB",
+"storage":"1TB",
+"resolution":"2560 x 1600",
+"price":"$1900"
+}
+
+
+////TABLETS COLLECTION ENDPOINTS///
+
+
+////LAPTOPS COLLECTION ENDPOINTS///
+
+# LOCALHOST
+### Get all users
+GET http://localhost:7000/tablets  
+
+### Get user by id 
+GET http://localhost:7000/tablets/65b15c9e2a9e924d36fc4f8c
+
+### Create a new user
+POST https://localhost:7000/tablets HTTP/1.1 
+content-type: application/json
+
+{
+"name": "Samsung Galaxy Tab A9+ ",
+"screenSize":"11.0",
+"cpuType":"Kryo 660 Gold Dual-core (2 Core) 2.20 GH",
+"memory":"8GB",
+"storage":"128GB",
+"resolution":"1920x1200",
+"price":"$240"
+}
+
+###Delete a user
+DELETE https://localhost:7000/tablets/65b15c9e2a9e924d36fc4f8c 
+
+### Update user by id
+PUT https://localhost:7000/tablets/65b1610c2a9e924d36fc4f92  HTTP/1.1 
+content-type: application/json
+
+{"_id":{"$oid":"65b1610c2a9e924d36fc4f92"},
+"name":"Lenovo Tab M9",
+"screenSize":"9.0",
+"cpuType":"MediaTek Helio G80",
+"memory":"3GB",
+"storage":"32GB",
+"resolution":"1340x800",
+"price":"$120"
+}
+
+
+##################################################
+# DEPLOYMENT via Render
+
+### Get all users 
+GET https://project2-cr6d.onrender.com/tablets
+
+### Get user by id 
+GET https://project2-cr6d.onrender.com/tablets/65b1610c2a9e924d36fc4f92
+
+### Create a new user
+POST https://project2-cr6d.onrender.com/tablets HTTP/1.1 
+content-type: application/json
+
+{
+"name": "Samsung Galaxy Tab A9+ ",
+"screenSize":"11.0",
+"cpuType":"Kryo 660 Gold Dual-core (2 Core) 2.20 GH",
+"memory":"8GB",
+"storage":"128GB",
+"resolution":"1920x1200",
+"price":"$240"
+}
+
+###Delete a user
+DELETE https://project2-cr6d.onrender.com/tablets/65b1610c2a9e924d36fc4f92 
+
+### Update user by id
+PUT https://project2-cr6d.onrender.com/tablets/65b1610c2a9e924d36fc4f92  HTTP/1.1 
+content-type: application/json
+
+{"_id":{"$oid":"65b1610c2a9e924d36fc4f92"},
+"name":"Lenovo Tab M9",
+"screenSize":"9.0",
+"cpuType":"MediaTek Helio G80",
+"memory":"3GB",
+"storage":"32GB",
+"resolution":"1340x800",
+"price":"$120"
+}
