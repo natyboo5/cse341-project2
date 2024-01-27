@@ -11,6 +11,16 @@
     "https"
   ],
   "paths": {
+    "/": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api-docs": {
       "get": {
         "description": "",
@@ -215,7 +225,7 @@
         }
       },
       "post": {
-        "summary": "Create a new laptop",
+        "summary": "Create a new tablet",
         "description": "",
         "parameters": [
           {
@@ -264,7 +274,7 @@
     },
     "/tablets/{id}": {
       "get": {
-        "summary": "Get laptop by id",
+        "summary": "Get tablet by id",
         "description": "",
         "produces": [
           "application/json"
