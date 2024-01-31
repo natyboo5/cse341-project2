@@ -23,8 +23,8 @@ const getSingle = async (req, res) => {
     if (!ObjectId.isValid(req.params.id)){
         res.status(400).json({message: 'Invalid id'});
     }
-    const userId = new ObjectId(req.params.id);
-    const result = await mongodb.getDatabase().db().collection('tablets').find({ _id: userId });
+    const tabletId = new ObjectId(req.params.id);
+    const result = await mongodb.getDatabase().db().collection('tablets').find({ _id: tabletId });
     result.toArray().then((tablets) => {
       if (tablets.length == 0) {
         res.status(400).json('ID does not exist.')
@@ -43,7 +43,7 @@ const createTablet = async (req, res) => {
   #swagger.summary = 'Create a new tablet' 
   */
   try{
-  const laptop = {
+  const tablet = {
     name: req.body.name,
     screenSize: req.body.screenSize,
     cpuType: req.body.cpuType,
@@ -53,7 +53,7 @@ const createTablet = async (req, res) => {
     price: req.body.price    
   };
 
-  const response = await mongodb.getDatabase().db().collection('tablets').insertOne(user);
+  const response = await mongodb.getDatabase().db().collection('tablets').insertOne(tablet);
   if (response.acknowledged) {
     res.status(201).json(response);
   } else {
@@ -72,8 +72,8 @@ const updateTablet = async (req, res) => {
   if (!ObjectId.isValid(req.params.id)){
     res.status(400).json({message: 'Invalid id'});
     }
-    const userId = new ObjectId(req.params.id);
-    const user = {
+    const tabletId = new ObjectId(req.params.id);
+    const tablet = {
         name: req.body.name,
         screenSize: req.body.screenSize,
         cpuType: req.body.cpuType,
@@ -82,7 +82,7 @@ const updateTablet = async (req, res) => {
         resolution: req.body.resolution,
         price: req.body.price 
     };
-    const response = await mongodb.getDatabase().db().collection('tablets').replaceOne({ _id: userId }, user);
+    const response = await mongodb.getDatabase().db().collection('tablets').replaceOne({ _id: tabletId }, tablet);
     console.log(response);
     if (response.modifiedCount > 0) {
       res.status(204).send();
@@ -103,8 +103,8 @@ const deleteTablet = async (req, res) => {
   if (!ObjectId.isValid(req.params.id)){
     res.status(400).json({message: 'Invalid id'});
     }
-    const userId = new ObjectId(req.params.id);
-    const response = await mongodb.getDatabase().db().collection('tablets').deleteOne({ _id: userId }, true);
+    const tabletId = new ObjectId(req.params.id);
+    const response = await mongodb.getDatabase().db().collection('tablets').deleteOne({ _id: tabletId }, true);
     console.log(response);
     if (response.deletedCount > 0) {
       res.status(204).send();

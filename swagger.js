@@ -6,7 +6,10 @@ const doc = {
     description: 'Electronics API containing technical specifications for devices such as: tablets, laptops, PCs and Tvs'
   },
   host: 'project2-cr6d.onrender.com',
+  // host: 'localhost:7000',
   schemes: ['https']
+  // schemes: ['http']
+ 
 };
 
 const outputFile = './swagger.json';

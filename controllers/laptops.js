@@ -23,8 +23,8 @@ const getSingle = async (req, res) => {
     if (!ObjectId.isValid(req.params.id)){
         res.status(400).json({message: 'Invalid id'});
     }
-    const userId = new ObjectId(req.params.id);
-    const result = await mongodb.getDatabase().db().collection('laptops').find({ _id: userId });
+    const laptopId = new ObjectId(req.params.id);
+    const result = await mongodb.getDatabase().db().collection('laptops').find({ _id: laptopId });
     result.toArray().then((laptops) => {
       if (laptops.length == 0) {
         res.status(400).json('ID does not exist.')
@@ -53,7 +53,7 @@ const createLaptop = async (req, res) => {
     price: req.body.price    
   };
 
-  const response = await mongodb.getDatabase().db().collection('laptops').insertOne(user);
+  const response = await mongodb.getDatabase().db().collection('laptops').insertOne(laptop);
   if (response.acknowledged) {
     res.status(201).json(response);
   } else {
@@ -72,8 +72,8 @@ const updateLaptop = async (req, res) => {
   if (!ObjectId.isValid(req.params.id)){
     res.status(400).json({message: 'Invalid id'});
     }
-    const userId = new ObjectId(req.params.id);
-    const user = {
+    const laptopId = new ObjectId(req.params.id);
+    const laptop = {
         name: req.body.name,
         screenSize: req.body.screenSize,
         cpuType: req.body.cpuType,
@@ -82,7 +82,7 @@ const updateLaptop = async (req, res) => {
         resolution: req.body.resolution,
         price: req.body.price 
     };
-    const response = await mongodb.getDatabase().db().collection('laptops').replaceOne({ _id: userId }, user);
+    const response = await mongodb.getDatabase().db().collection('laptops').replaceOne({ _id: laptopId }, laptop);
     console.log(response);
     if (response.modifiedCount > 0) {
       res.status(204).send();
@@ -103,8 +103,8 @@ const deleteLaptop = async (req, res) => {
   if (!ObjectId.isValid(req.params.id)){
     res.status(400).json({message: 'Invalid id'});
     }
-    const userId = new ObjectId(req.params.id);
-    const response = await mongodb.getDatabase().db().collection('laptops').deleteOne({ _id: userId }, true);
+    const laptopId = new ObjectId(req.params.id);
+    const response = await mongodb.getDatabase().db().collection('laptops').deleteOne({ _id: laptopId }, true);
     console.log(response);
     if (response.deletedCount > 0) {
       res.status(204).send();
